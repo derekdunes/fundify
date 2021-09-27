@@ -7,3 +7,7 @@ main {
 div {
     margin-bottom: 2%;
 }
+
+.err {
+    color: crimson;
+}
