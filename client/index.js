@@ -1,3 +1,4 @@
+
 const form = document.querySelectorAll('.donate-form');
 const submitInput = form[0].querySelector('button[type="submit"]')
 const fillDonationSection = document.querySelector('section[id="fill-donation"]');
@@ -17,6 +18,12 @@ function getFormData(e) {
 
     var formData = new FormData(form[0]);
 
+    //check the contents of formData to know if it is empty
+    if(isFormDataEmpty(formData)){
+        //if any content is empty return a error message
+        return; //prevent continuation
+    }
+
     //check the freq of payment(monthly or yearly) and calculate the new amont for donation
     var newAmount = calcDonation(formData.get('freq'), formData.get('amount'))//frequency, amount
 
@@ -31,6 +38,29 @@ function getFormData(e) {
     confirmDonationSection.hidden=false;
     
 
+}
+
+function isFormDataEmpty(formData){
+    const formLabelArray = ['first-name', 'last-name', 'address', 'city', 'state', 'country', 'postal-code', 'phone-number', 'email', 'pref', 'currency', 'freq', 'amount', 'comment']
+
+ 
+    for (let index = 0; index < formLabelArray.length; index++) {
+        
+        var formValue = formData.get(formLabelArray[index]).trim();
+        
+        //console.log(formValue);
+
+        if(formValue.length === 0){
+            //first show error message
+            //console.log(formLabelArray[index]);
+            var span = document.getElementById(formLabelArray[index]);
+            span.hidden = false;
+            return true;
+        }
+
+    }
+
+    return false;
 }
 
 function updateConfirmPageLabels(formData, newAmount) {
@@ -121,19 +151,7 @@ function confirmDonation() {
     //Get and save the content
     //fetch('');
 
-    const labelArray = [];
-
-    //get all the label contents
-    for (let i = 1; i < 15; i++){ 
-        var labelId = 'label' + (i);
-
-        const label = document.getElementById(labelId);
-
-        //console.log(label.innerHTML);
-        labelArray.push(label.innerHTML);
-
-    }
-
+    const labelArray = getLabelsArray();
 
     //save to db
     fetch('http://localhost:5000/save', {
@@ -170,6 +188,24 @@ function confirmDonation() {
     });
     
 
+}
+
+function getLabelsArray() {
+
+    const labelArray = [];
+
+    //get all the label contents
+    for (let i = 1; i < 15; i++){ 
+        var labelId = 'label' + (i);
+
+        const label = document.getElementById(labelId);
+
+        //console.log(label.innerHTML);
+        labelArray.push(label.innerHTML);
+
+    }
+
+    return labelArray;
 }
 
 // const _calcDonation = calcDonation;

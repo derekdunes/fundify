@@ -18,34 +18,34 @@
                 </div>
 
                 <div>
-                    <Label>First Name:</Label>
+                    <Label>First Name:<span id="first-name" class="err" hidden>First Name field is Empty</span></Label>
                     <input type="text" name="first-name" required>
                 </div>
 
                 <div>
-                    <Label>Last Name:</Label>
+                    <Label>Last Name:<span id="last-name" class="err" hidden>Last Name field is Empty</span></Label>
                     <input type="text" name="last-name" required>
                 </div>
 
                 <div>
-                    <Label>Street Address:</Label>
+                    <Label>Street Address:<span id="address" class="err" hidden>Address field is Empty</span></Label>
                     <input type="text" name="address" required>
                 </div>
 
                 <div>
-                    <Label>City:</Label>
+                    <Label>City:<span id="city" class="err" hidden>City field is Empty</span></Label>
                     <input type="text" name="city" required>
                 </div>
 
                 <div>
-                    <Label>State/Region:</Label>
+                    <Label>State/Region:<span id="state" class="err" hidden>State field is Empty</span></Label>
                     <input type="text" name="state" required>
                 </div>
 
                 <div>
-                    <Label>Country:</Label>
+                    <Label>Country:<span id="country" class="err" hidden>Select a valid Country</span></Label>
                     <select id="country" name="country" required>
-                    <option>select country</option>
+                    <option></option>
                     <option value="AF">Afghanistan</option>
                     <option value="AX">Aland Islands</option>
                     <option value="AL">Albania</option>
@@ -302,33 +302,33 @@
                 </div>
 
                 <div>
-                    <Label>Postal Code: </Label>
+                    <Label>Postal Code:<span id="postal-code" class="err" hidden>Postal code field is Empty</span></Label>
                     <input type="text" name="postal-code" required>
                 </div>
 
                 <div>
-                    <Label>Phone Number:</Label>
+                    <Label>Phone Number:<span id="phone-number" class="err" hidden>Phone number field is Empty</span></Label>
                     <input type="text" name="phone-number" required>
                 </div>
 
                 <div>
-                    <Label>Email:</Label>
+                    <Label>Email:<span id="email" class="err" hidden>Email field is Empty</span></Label>
                     <input type="email" name="email" required>
                 </div>
 
                 <div>
-                    <Label>Preferred Form of Contact:</Label>
-                    <select name="pref" name="pref" required>
-                        <option>select contact type</option>
+                    <Label>Preferred Form of Contact:<span id="pref" class="err" hidden>Select a valid email pref</span></Label>
+                    <select name="pref" required>
+                        <option></option>
                         <option value="email">Email</option>
                         <option value="phone">Phone Number</option>
                         <option value="both">Both</option>
                     </select>
                 </div>
                 <div>
-                    <Label>Preferred Form of Donation:</Label>
-                    <select name="currency" name="currency" required>
-                        <option>select currency</option>
+                    <Label>Preferred Form of Donation:<span id="currency" class="err" hidden>Select a valid currency</span></Label>
+                    <select name="currency" required>
+                        <option></option>
                         <option value="usd">USD</option>
                         <option value="euro">EURO</option>
                         <option value="bitcoin">Bitcoin</option>
@@ -336,9 +336,9 @@
                 </div>
 
                 <div>
-                    <Label>Frequency of Donation:</Label>
-                    <select name="freq" name="freq" required>
-                        <option>select Frequency</option>
+                    <Label>Frequency of Donation:<span id="freq" class="err" hidden>Select a valid Donation Frequency</span></Label>
+                    <select name="freq" required>
+                        <option></option>
                         <option value="monthly">Monthly</option>
                         <option value="yearly">Yearly</option>
                         <option value="one-time">One-Time</option>
@@ -346,12 +346,12 @@
                 </div>
 
                 <div>
-                    <Label>Amount to Donate:</Label>
+                    <Label>Amount to Donate:<span id="amount" class="err" hidden>Amount field is Empty</span></Label>
                     <input type="number" min="1" step="any" name="amount" required>
                 </div>
                 
                 <div>
-                    <label for="comment">Comments:</label>
+                    <label for="comment">Comments:<span id="comment" class="err" hidden>Comment field is empty</span></label>
                     <textarea name="comment"></textarea>
                 </div>
 
